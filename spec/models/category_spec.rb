@@ -12,6 +12,13 @@ describe Category do
     expect(FactoryGirl.build(:category)).to validate_uniqueness_of(:name)
   end
 
+  it "is have length more then 2" do
+    expect(Category.new(name:"IO")).to_not be_valid
+  end
+
+  it "is have many items" do
+    expect(FactoryGirl.build(:category)).to have_many(:items)
+  end
 end
 
 
