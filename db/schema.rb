@@ -11,10 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131210171422) do
+ActiveRecord::Schema.define(version: 20131210183429) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "items", force: true do |t|
+    t.string   "name"
+    t.float    "price"
+    t.string   "description"
+    t.integer  "category_id"
+    t.integer  "lot_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "lots", force: true do |t|
+    t.string   "name"
+    t.float    "price"
+    t.string   "description"
+    t.time     "end_time"
+    t.float    "bet_step"
+    t.time     "time_step"
+    t.integer  "item_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
