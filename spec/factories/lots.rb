@@ -6,6 +6,7 @@ FactoryGirl.define do
     end_time "2013-12-11 01:57:12"
     bet_step 0.25
     time_step "0000-00-00 00:00:10"
-    association(:item)
+    item_id 1
+    # association(:item)
   end
 end
