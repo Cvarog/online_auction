@@ -44,4 +44,15 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+
+  config.include FactoryGirl::Syntax::Methods
+end
+
+RSpec.configure do |c|
+  c.alias_example_to :expect_it
+end
+
+RSpec::Core::MemoizedHelpers.module_eval do
+  alias to should
+  alias to_not should_not
 end
