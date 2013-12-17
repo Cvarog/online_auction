@@ -29,6 +29,16 @@ gem 'jbuilder', '~> 1.2'
 
 gem "haml-rails"
 
+gem 'twitter-bootstrap-rails'
+
+gem 'ancestry'
+
+gem 'zeus'
+
+gem 'pry-rails'
+
+gem 'simple_form'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
