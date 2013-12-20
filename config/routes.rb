@@ -1,7 +1,14 @@
 OnlineAuction::Application.routes.draw do
+  
   devise_for :users
-  resources :categories
 
+
+  namespace :admin do 
+    resources :categories
+    # resources :items
+  end
+
+  
   root 'categories#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

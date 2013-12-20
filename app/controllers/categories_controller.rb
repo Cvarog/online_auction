@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-
+  before_filter :authenticate_user!
 
   def index
     @categories = Category.all
@@ -47,7 +47,7 @@ class CategoriesController < ApplicationController
   end
 
   def category_params
-    params.require(:category).permit(:name)
+    params.require(:category).permit(:name, :picture)
   end
 
 end
