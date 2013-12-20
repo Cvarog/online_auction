@@ -1,0 +1,55 @@
+class Admin::CategoriesController < Admin::BaseController
+  
+
+  # before_filter :authenticate_user!
+
+  def index
+    @categories = Category.all
+    # render text: params.inspect
+  end
+
+  def new
+    @category = Category.new
+  end
+
+  def show
+    @category = Category.find(params[:id])
+  end
+
+  def create
+      @category = Category.new(category_params)
+      # @zombie = Zombie.create(params[:zombie])
+      if @category.save
+        redirect_to admin_categories_path
+      else
+        render "new"
+      end
+  end
+
+  def edit
+    @category = Category.find(params[:id])
+  end
+
+  def destroy
+    @category = Category.find(params[:id])
+    @category.destroy
+
+    redirect_to admin_categories_path
+  end
+
+  def edit
+    @category = Category.find(params[:id])
+  end
+
+  def update
+    @category = Category.find(params[:id])
+    @category.update(category_params)
+
+    redirect_to admin_categories_path
+  end
+
+  def category_params
+    params.require(:category).permit(:name, :picture)
+  end
+
+end

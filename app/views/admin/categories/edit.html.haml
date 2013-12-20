@@ -1,0 +1,8 @@
+%p Add a new Category
+=simple_form_for [:admin, @category] do |f|
+  
+  %p
+    = f.label :name
+    = f.text_field :name
+  %p
+    = f.submit "Save changes"
