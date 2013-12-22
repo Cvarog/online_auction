@@ -1,11 +1,9 @@
 class Admin::CategoriesController < Admin::BaseController
   
-
-  # before_filter :authenticate_user!
+  before_filter :set_category, except: [:index, :new, :create]
 
   def index
     @categories = Category.all
-    # render text: params.inspect
   end
 
   def new
@@ -13,7 +11,6 @@ class Admin::CategoriesController < Admin::BaseController
   end
 
   def show
-    @category = Category.find(params[:id])
   end
 
   def create
@@ -26,30 +23,29 @@ class Admin::CategoriesController < Admin::BaseController
       end
   end
 
-  def edit
-    @category = Category.find(params[:id])
-  end
-
   def destroy
-    @category = Category.find(params[:id])
     @category.destroy
 
     redirect_to admin_categories_path
   end
 
   def edit
-    @category = Category.find(params[:id])
   end
 
   def update
-    @category = Category.find(params[:id])
     @category.update(category_params)
 
     redirect_to admin_categories_path
   end
 
+  private
+
+  def set_category
+    @category = Category.find(params[:id])
+  end
+
   def category_params
-    params.require(:category).permit(:name, :picture)
+    params.require(:category).permit(:name, :picture, :parent_id)
   end
 
 end

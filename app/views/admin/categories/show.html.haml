@@ -2,3 +2,6 @@
 / =image_tag @category.picture.url
 =image_tag @category.picture.url(:medium)
 =image_tag @category.picture.url(:thumb)
+
+%p
+= @category.parent.name

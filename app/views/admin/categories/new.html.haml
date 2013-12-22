@@ -2,10 +2,12 @@
 =simple_form_for [:admin, @category] do |f|
   
   %p
-    = f.label :name
-    = f.text_field :name
+    = f.input :name
   %p
-    = f.label"Choose Picture"  	
-    = f.file_field :picture
+    = f.input :picture, label: "Picture new"
+  %p
+    = f.label "Parent"
+    / = f.select :ancestry, Category.all.collect {|p| [ p.name, p.id ] }, { include_blank: true }
+    = f.collection_select :parent_id, Category.order(:name), :id, :name, { include_blank: true }
   %p
     = f.submit "Add category"

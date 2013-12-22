@@ -1,23 +1,22 @@
 .navbar
-        .navbar-inner
-                %a.brand{:href => admin_categories_path} Categories
-                %ul.nav
-                        %li.active
-                                %a{ :href => new_admin_category_path} New Category
-                        %li
-                                = link_to "Выйти", destroy_user_session_path, method: :delete
-                                / %a{ :href => destroy_user_session_path, method:  :delete } Выйти
-                        %li
-                                %a{ :href => "#" } Link
+  .navbar-inner
+    %a.brand{ href: admin_categories_path } Categories
+    %ul.nav
+      %li.active
+        %a{ href: new_admin_category_path } New Category
+      %li
+        = link_to "Выйти", destroy_user_session_path, method: :delete
+      %li
+        %a{ :href => "#" } Link
 %h1{ :align => "center" }>Categories
 - @categories.each do |category|
-        %div{ padding: 10 }[category]
-                %b Name
-                = link_to category.name, admin_category_path(category)
-                %br
-                %b Id
-                = category.id
-                %br
-                .controls
-                = link_to "Edit", edit_admin_category_path(category)
-                = link_to "Delete", admin_category_path(category), :method => :delete, :confirm => "Are u shure?"  
+  %div{ padding: 10 }[category]
+    %b Name
+    = link_to category.name, admin_category_path(category)
+    %br
+    %b
+    = category.parent.name if category.parent
+    %br
+    .controls
+    = link_to "Edit", edit_admin_category_path(category)
+    = link_to "Delete", admin_category_path(category), :method => :delete, :confirm => "Are u shure?"  
