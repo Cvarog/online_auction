@@ -3,7 +3,7 @@ class Item < ActiveRecord::Base
   has_many :lots
 
   validates :name, :description, :price,  presence: true, length: { minimum: 3 }
-  validates :description, length: { minimum: 60 }
+  validates :description, length: { minimum: 30 }
   validates :price, numericality: { greater_than_or_equal_to: 1 }
  
  end

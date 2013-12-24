@@ -1,0 +1,22 @@
+.navbar
+  .navbar-inner
+    %a.brand{ href: admin_items_path } Items
+    %ul.nav
+      %li
+        %a{ href: new_admin_item_path } New Item
+      %a.brand{ href: admin_categories_path } Categories
+      %li
+        = link_to "Выйти", destroy_user_session_path, method: :delete
+
+%h1{ :align => "center" }>Items
+- @items.each do |item|
+  %div{ padding: 10 }[item]
+    %b Name
+    = link_to item.name, admin_item_path(item)
+    %br
+    %b
+    / = category.parent.name if category.parent
+    %br
+    .controls
+    = link_to "Edit", edit_admin_item_path(item)
+    = link_to "Delete", admin_item_path(item), :method => :delete, :confirm => "Are u shure?"  

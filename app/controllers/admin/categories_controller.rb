@@ -25,7 +25,6 @@ class Admin::CategoriesController < Admin::BaseController
 
   def destroy
     @category.destroy
-
     redirect_to admin_categories_path
   end
 
@@ -35,7 +34,7 @@ class Admin::CategoriesController < Admin::BaseController
   def update
     @category.update(category_params)
 
-    redirect_to admin_categories_path
+    redirect_to admin_items_path
   end
 
   private

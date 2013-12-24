@@ -1,7 +1,7 @@
 %h1= @category.name
 / =image_tag @category.picture.url
 =image_tag @category.picture.url(:medium)
-=image_tag @category.picture.url(:thumb)
+/ =image_tag @category.picture.url(:thumb)
 
 %p
-= @category.parent.name
+= @category.parent.name if @category.parent
