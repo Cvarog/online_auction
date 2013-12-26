@@ -20,9 +20,11 @@ class Admin::ItemsController < Admin::BaseController
   
   def new
     @item = Item.new
+    4.times { @item.images.build }
   end
   
   def edit
+    4.times { @item.images.build }
   end
 
   def update
@@ -34,7 +36,7 @@ class Admin::ItemsController < Admin::BaseController
 
   def destroy
     @item.destroy
-    redirect_to admin_categories_path
+    redirect_to admin_items_path
   end
 
   private
@@ -44,7 +46,7 @@ class Admin::ItemsController < Admin::BaseController
   end
 
   def item_params
-    params.require(:item).permit(:name, :description, :price)
+    params.require(:item).permit(:name, :description, :price, images_attributes: [:item_image])
   end
 
 

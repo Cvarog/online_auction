@@ -1,0 +1,22 @@
+=simple_form_for [:admin, @item] do |f|
+
+  %p
+    =f.input :name
+  %p
+    =f.input :description
+  %p
+    =f.input :price
+  
+  =f.fields_for :images do |i|
+    =i.input :item_image, label: "Фотография"   
+  / %div
+  /   =f.fields_for :images do |image| 
+  /     -if image.object.new_record?
+  /       =image.file_field :image
+  / %div
+  /   =f.fields_for :images do |image| 
+  /     -unless image.object.new_record?
+  /       =link_to( image_tag(image.object.image.url(:thumb)) )
+  /       =image.check_box :_delete
+  %p
+    =f.submit "Сохранить"

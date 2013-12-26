@@ -2,3 +2,6 @@
 
 %p=@item.description
 %p=@item.price
+-@item.images.each do |i|
+  %p=image_tag i.item_image.url(:medium)
+/=image_tag @category.picture.url(:medium)
