@@ -1,22 +1,18 @@
-=simple_form_for [:admin, @item] do |f|
-
+=simple_nested_form_for [:admin, @item], :html => { :multipart => true } do |f|
   %p
-    =f.input :name
+    = f.input :name
   %p
-    =f.input :description
+    = f.input :description
   %p
-    =f.input :price
+    = f.input :price
   
-  =f.fields_for :images do |i|
-    =i.input :item_image, label: "Фотография"   
-  / %div
-  /   =f.fields_for :images do |image| 
-  /     -if image.object.new_record?
-  /       =image.file_field :image
-  / %div
-  /   =f.fields_for :images do |image| 
-  /     -unless image.object.new_record?
-  /       =link_to( image_tag(image.object.image.url(:thumb)) )
-  /       =image.check_box :_delete
   %p
-    =f.submit "Сохранить"
+  = f.fields_for :images do |image|
+    - unless image.object.new_record?
+      = image_tag image.object.item_image.url(:medium)
+    - else
+      = image.file_field :item_image
+    = image.link_to_remove "Remove"
+  = f.link_to_add "Add image", :images
+  %p
+    =f.submit "Save"

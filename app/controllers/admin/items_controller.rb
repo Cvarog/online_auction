@@ -20,11 +20,11 @@ class Admin::ItemsController < Admin::BaseController
   
   def new
     @item = Item.new
-    4.times { @item.images.build }
+    # 4.times { @item.images.build }
   end
   
   def edit
-    4.times { @item.images.build }
+    # 4.times { @item.images.build }
   end
 
   def update
@@ -46,7 +46,7 @@ class Admin::ItemsController < Admin::BaseController
   end
 
   def item_params
-    params.require(:item).permit(:name, :description, :price, images_attributes: [:item_image])
+    params.require(:item).permit(:name, :description, :price, images_attributes: [:id, :item_image, :_destroy])
   end
 
 

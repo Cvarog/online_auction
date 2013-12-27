@@ -1,12 +1,2 @@
 %p Add a new Item
-/ =simple_form_for [:admin, @item] do |f|
-
-/   %p
-/     =f.input :name
-/   %p
-/     =f.input :description
-/   %p
-/     =f.input :price
-/   %p
-/     =f.submit "Save changes"
 =render :partial => "form"
