@@ -16,7 +16,7 @@ describe Item do
   expect_it { to ensure_length_of(:name).is_at_least(3) }
   
   # it "doesn't allow description less then 30 chars" do
-  expect_it { to ensure_length_of(:description).is_at_least(60) }
+  expect_it { to ensure_length_of(:description).is_at_least(30) }
 
   # it "doesn't allow non-numerical and negative price" do
   expect_it { to validate_numericality_of(:price).is_greater_than_or_equal_to(1) }
