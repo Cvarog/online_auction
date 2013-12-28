@@ -51,12 +51,12 @@ feature 'Admin sign in' do
 
   context 'Admin' do
     background do
-      User.create!(email: 'admin@test.com', password: '12345678', nickname: "Cvarog", first_name: "Artem", last_name: "Shaykin",  password_confirmation: '12345678', admin: true)
+      User.create!(email: 'admin@test.com', password: '12345678', nickname: 'Cvarog', first_name: 'Artem', last_name: 'Shaykin',  password_confirmation: '12345678', admin: true)
     end
 
     scenario "Unauthenticated user tries to get an access to admin area" do
       expect(current_path).to eq(new_user_session_path)
-      page.should have_content 'Sign in'
+      expect(page).to have_content('Sign in')
     end
 
     scenario 'Admin successfully logging' do
