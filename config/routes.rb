@@ -6,6 +6,7 @@ OnlineAuction::Application.routes.draw do
   namespace :admin do 
     resources :categories
     resources :items
+    resources :lots
   end
 
 

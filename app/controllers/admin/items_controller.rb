@@ -49,29 +49,4 @@ class Admin::ItemsController < Admin::BaseController
     params.require(:item).permit(:name, :description, :price, images_attributes: [:id, :item_image, :_destroy])
   end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 end

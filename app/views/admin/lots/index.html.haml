@@ -1,0 +1,21 @@
+.navbar
+  .navbar-inner
+    %a.brand{ href: admin_lots_path } Lots
+    %ul.nav
+      %li
+        %a{ href: new_admin_lot_path } New Lot
+      %a.brand{ href: admin_categories_path } Categories
+      %li
+        = link_to "Выйти", destroy_user_session_path, method: :delete
+
+%h1{ :align => "center" }>Lots
+- @lots.each do |lot|
+  %div{ padding: 10 }[lot]
+    %b Name
+    = link_to lot.name, admin_lot_path(lot)
+    %br
+    %b
+    %br
+    .controls
+    = link_to "Edit", edit_admin_lot_path(lot)
+    = link_to "Delete", admin_lot_path(lot), :method => :delete, :confirm => "Are u shure?"  

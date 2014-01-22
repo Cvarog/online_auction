@@ -1,0 +1,9 @@
+=simple_nested_form_for [:admin, @lot], :html => { :multipart => true } do |f|
+  %p
+    = f.input :name
+  / %p
+  /   = f.input :description
+  / %p
+  /   = f.input :price
+  %p
+    =f.submit "Save"
