@@ -20,7 +20,7 @@ class Admin::LotsController < ApplicationController
   end
 
   def destroy
-    @item.destroy
+    @lot.destroy
     redirect_to admin_lots_path
   end
 
@@ -43,7 +43,7 @@ class Admin::LotsController < ApplicationController
   private
 
   def lot_params
-   params.require(:lot).permit(:name)
+   params.require(:lot).permit(:name, :bet_step, :end_time)
   end
 
 
