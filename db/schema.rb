@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131228215827) do
+ActiveRecord::Schema.define(version: 20140131165011) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -49,13 +49,12 @@ ActiveRecord::Schema.define(version: 20131228215827) do
   create_table "lots", force: true do |t|
     t.string   "name"
     t.string   "description"
-    t.time     "end_time"
-    t.float    "bet_step"
-    t.time     "time_step"
     t.integer  "item_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "price"
+    t.decimal  "price",        precision: 8, scale: 2
+    t.datetime "expired_time"
+    t.integer  "time_step"
   end
 
   create_table "users", force: true do |t|

@@ -1,47 +1,47 @@
 require 'spec_helper'
 
-# feature "Admin logging in to admin area", %q{
-#   In order to manage auction's settings
-#   As an admin
-#   I want to logging into admin area
-#  } do
+feature "Admin logging in to admin area", %q{
+  In order to manage auction's settings
+  As an admin
+  I want to logging into admin area
+ } do
 
-#   background do
-#     visit admin_products_path
-#   end
+  background do
+    visit admin_categories_path
+  end
 
-#   context 'Admin' do
-#     background do
-#       User.create!(email: 'admin@test.com', password: '12345678', password_confirmation: '12345678', admin: true)
-#     end
+  context 'Admin' do
+    background do
+      User.create!(email: 'admin@test.com', password: '12345678', password_confirmation: '12345678', admin: true)
+    end
 
-#     scenario "Unauthenticated user tries to get an access to admin area" do
-#       current_path.should == new_user_session_path
-#       page.should have_content 'Вам необходимо войти или зарегистрироваться'
-#     end
+    scenario "Unauthenticated user tries to get an access to admin area" do
+      current_path.should == new_user_session_path
+      page.should have_content 'Forgot your password?'#'Вам необходимо войти или зарегистрироваться'
+    end
 
-#     scenario "Admin successfully logging into admin area" do
-#       sign_in_with 'admin@test.com', '12345678'
+    scenario "Admin successfully logging into admin area" do
+      sign_in_with 'admin@test.com', '12345678'
 
-#       page.should have_content 'Список продуктов'
-#     end
+      page.should have_content 'Categories'#Список продуктов'
+    end
 
-#     scenario "User fill in wrong credentials" do
-#       sign_in_with 'wrong', 'wrong'
+    # scenario "User fill in wrong credentials" do
+    #   sign_in_with 'wrong', 'wrong'
 
-#       current_path.should == new_user_session_path
-#       page.should have_content 'Неверное имя пользователя или пароль'
-#     end
-#   end
+    #   current_path.should == new_user_session_path
+    #   page.should have_content 'Неверное имя пользователя или пароль'
+    # end
+  end
 
-#   scenario "Non-admin user tries to log in" do
-#     User.create!(email: 'user@test.com', password: '12345678', password_confirmation: '12345678', admin: false)
+  scenario "Non-admin user tries to log in" do
+    User.create!(email: 'user@test.com', password: '12345678', password_confirmation: '12345678', admin: false)
 
-#     sign_in_with 'user@test.com', '12345678'
+    sign_in_with 'user@test.com', '12345678'
 
-#     page.should have_content "У вас нет прав доступа к этой странице"
-#   end
-# end
+    page.should have_content "У вас нет прав доступа к этой странице"
+  end
+end
 
 feature 'Admin sign in' do
   
@@ -64,13 +64,54 @@ feature 'Admin sign in' do
       expect(page).to have_content('Categories')
     end
 end
-
-
-
-  def sign_in_with(email, password)
-    visit admin_categories_path
-    fill_in 'Email', with: email
-    fill_in 'Password', with: password
-    click_button 'Sign in'
-  end
 end
+
+
+#   def sign_in_with(email, password)
+#     visit admin_categories_path
+#     fill_in 'Email', with: email
+#     fill_in 'Password', with: password
+#     click_button 'Sign in'
+#   end
+
+# require 'spec_helper'
+
+# feature "Admin logging in to admin area", %q{
+#   In order to manage auction's settings
+#   As an admin
+#   I want to logging into admin area
+#  } do
+
+#   background do
+#     visit admin_categories_path
+#   end
+
+#   context 'Admin' do
+#     background do
+#       User.create!(email: 'admin@test.com', password: '12345678', password_confirmation: '12345678', admin: true)
+#     end
+
+#     scenario "Unauthenticated user tries to get an access to admin area" do
+#       current_path.should == new_user_session_path
+#       page.should have_content 'Вам необходимо войти в систему или зарегистрироваться'
+#     end
+
+#     scenario "Admin successfully logging into admin area" do
+#       sign_in_with 'admin@test.com', '12345678'
+#       page.should have_content 'Управление продуктами'
+#     end
+
+#     scenario "User fill in wrong credentials" do
+#       sign_in_with 'wrong', 'wrong'
+#       current_path.should == new_user_session_path
+#       page.should have_content "Неверный адрес e-mail или пароль."
+#     end
+#   end
+
+#   scenario "Non-admin user tries to log in" do
+#     User.create!(email: 'user@test.com', password: '12345678', password_confirmation: '12345678', admin: false)
+
+#     sign_in_with 'user@test.com', '12345678'
+#     page.should have_content "У вас нет прав доступа к этой странице"
+#   end
+# end
