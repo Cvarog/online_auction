@@ -22,6 +22,11 @@ feature "Admin work with items! " do
       expect(page).to have_content(item.name, item.description)
     end
 
+    scenario "delete item" do
+      visit admin_items_path
+      expect{ click_on("Delete", match: :first) }.to change(Item, :count).by(-1)      
+    end
+
   end
 
   context "Admin create new item, " do
@@ -64,5 +69,8 @@ feature "Admin work with items! " do
     #   click_on('Save')
     #   expect(current_path).not_to eq(admin_items_path)
     # end
+
+
+
   end
 end

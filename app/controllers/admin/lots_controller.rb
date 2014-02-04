@@ -33,7 +33,7 @@ class Admin::LotsController < ApplicationController
   def update
     @lot.update(lot_params)
 
-    redirect_to admin_lot_path
+    redirect_to admin_lots_path
   end
 
   def set_lot

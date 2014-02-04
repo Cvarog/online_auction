@@ -48,9 +48,9 @@ feature "Admin work with categories! " do
       expect(page).to have_content(category.name)
     end
 
-    scenario "push delete button" do
+    scenario "delete category" do
       visit admin_categories_path
-      expect { click_on('Delete') }.to change(Category, :count).by(-1)
+      expect{ click_on("Delete", match: :first) }.to change(Category, :count).by(-1)      
     end
   end
 end
