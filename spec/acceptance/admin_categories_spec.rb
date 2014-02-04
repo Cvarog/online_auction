@@ -23,14 +23,14 @@ feature "Admin work with categories! " do
     scenario "with valid params" do
       fill_in 'category[name]', with: 'Мультимедиа111'
       expect { click_on('Save') }.to change(Category, :count).by(+1)
-      expect(current_path).to eq(admin_categories_path)
+      expect(current_path).to eq(admin_category_path(Category.last))
     end
 
     scenario "with attached image" do
       fill_in 'category[name]', with: 'Категория'
       attach_file "category[picture]", "#{Rails.root}/app/assets/images/no_image.jpg"
       expect { click_on('Save') }.to change(Category, :count).by(+1)
-      expect(current_path).to eq(admin_categories_path)
+      expect(current_path).to eq(admin_category_path(Category.last))
     end
 
     scenario "with invalid data" do

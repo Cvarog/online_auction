@@ -20,15 +20,12 @@ class Admin::ItemsController < Admin::BaseController
   
   def new
     @item = Item.new
-    # 4.times { @item.images.build }
   end
   
   def edit
-    # 4.times { @item.images.build }
   end
 
   def update
-    
     @item.update(item_params)
 
     redirect_to admin_items_path
