@@ -1,0 +1,9 @@
+.lot 
+  %h1
+    = @lot.name
+  %h3
+    = @lot.price
+  %h4
+    = @lot.expired_time
+
+= button_to 'Make a Bet!', bets_path(lot_id: @lot)

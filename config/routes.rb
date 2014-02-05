@@ -9,6 +9,9 @@ OnlineAuction::Application.routes.draw do
     resources :lots
   end
 
+  resources :lots, only: [:index, :show]
+  resources :bets, only: [:create]
+  
 
   root 'site#index'
 

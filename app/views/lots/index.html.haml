@@ -1,0 +1,6 @@
+%h1{ :align => "center" }>Лоты
+- @lots.each do |lot|
+  %div{ padding: 10 }[lot]
+    %b Name
+    = link_to lot.name, lot_path(lot)
+    %br
