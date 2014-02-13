@@ -43,7 +43,7 @@ class Admin::LotsController < ApplicationController
   private
 
   def lot_params
-   params.require(:lot).permit(:name, :description, :price, :expired_time, :time_step)
+   params.require(:lot).permit(:name, :description, :price, :start_time, :expired_time, :time_step)
   end
 
 

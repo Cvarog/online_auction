@@ -45,6 +45,10 @@ gem "nested_form", "~> 0.3.2"
 
 gem 'inherited_resources'
 
+gem "private_pub"
+
+gem "thin"
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

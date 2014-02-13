@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140205124950) do
+ActiveRecord::Schema.define(version: 20140213125013) do
 
   create_table "bets", force: true do |t|
     t.integer  "user_id"
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 20140205124950) do
     t.decimal  "price",        precision: 8, scale: 2
     t.datetime "expired_time"
     t.integer  "time_step"
+    t.datetime "start_time"
   end
 
   create_table "users", force: true do |t|

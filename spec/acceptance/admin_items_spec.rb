@@ -61,16 +61,5 @@ feature "Admin work with items! " do
       expect(current_path).to eq(admin_items_path)
       expect(page).to have_content('My_new_item')
     end
-
-    # scenario " edit with invalid params" do
-    #   fill_in 'item[name]', with: 'My'
-    #   fill_in 'item[description]', with: 'The best'
-    #   fill_in 'item[price]', with: '100'
-    #   click_on('Save')
-    #   expect(current_path).not_to eq(admin_items_path)
-    # end
-
-
-
   end
 end

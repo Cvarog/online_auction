@@ -1,9 +1,13 @@
-.lot 
+.lot{id: "lot_#{@lot.id}"}
   %h1
     = @lot.name
   %h3
     = @lot.price
-  %h4
-    = @lot.expired_time
+  %p
+    =@lot.start_time
+  %p.expired_time
+    =@lot.expired_time
 
-= button_to 'Make a Bet!', bets_path(lot_id: @lot)
+    
+= button_to 'Make a Bet!', bets_path(lot_id: @lot), remote: true
+= subscribe_to "/lots/update"

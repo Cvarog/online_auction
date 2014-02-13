@@ -16,6 +16,7 @@
 //= require turbolinks
 //= require_tree .
 //= require jquery
+//= require private_pub
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require jquery_nested_form

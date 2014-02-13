@@ -11,5 +11,12 @@ module Features
       visit new_user_session_path
       sign_in_with "uchihamilord@gmail.com", '12345678'
     end
+
+    def user_session
+      FactoryGirl.create(:user, email: "test@gmail.com")
+      visit new_user_session_path
+      sign_in_with "test@gmail.com", '12345678'
+    end
+
   end
 end

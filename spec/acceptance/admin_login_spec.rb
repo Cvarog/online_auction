@@ -25,13 +25,6 @@ feature "Admin logging in to admin area", %q{
 
       page.should have_content 'Categories'#Список продуктов'
     end
-
-    # scenario "User fill in wrong credentials" do
-    #   sign_in_with 'wrong', 'wrong'
-
-    #   current_path.should == new_user_session_path
-    #   page.should have_content 'Неверное имя пользователя или пароль'
-    # end
   end
 
   scenario "Non-admin user tries to log in" do
