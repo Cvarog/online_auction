@@ -4,14 +4,14 @@
     = link_to lot.name, lot_path(lot)
     %br
 %hr
-%h2{ :align => "center" }>Стартовавшие Лоты
-- @started_lots.each do |lot|
-  %div{ padding: 10 }[lot]
-    = link_to lot.name, lot_path(lot)
-    %br
-%hr
-%h2{ :align => "center" }>Завершившиеся Лоты
-- @finished_lots.each do |lot|
-  %div{ padding: 10 }[lot]
-    = link_to lot.name, lot_path(lot)
-    %br
+/ %h2{ :align => "center" }>Стартовавшие Лоты
+/ - @started_lots.each do |lot|
+/   %div{ padding: 10 }[lot]
+/     = link_to lot.name, lot_path(lot)
+/     %br
+/ %hr
+/ %h2{ :align => "center" }>Завершившиеся Лоты
+/ - @finished_lots.each do |lot|
+/   %div{ padding: 10 }[lot]
+/     = link_to lot.name, lot_path(lot)
+/     %br

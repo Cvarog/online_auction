@@ -8,6 +8,12 @@
   %p.expired_time
     =@lot.expired_time
 
+  %p
+    -@lot.item.images.each do |i|
+      =image_tag i.item_image.url(:medium)
+  / -@item.images.each do |i|
+  / %p=image_tag i.item_image.url(:medium)
+
     
 = button_to 'Make a Bet!', bets_path(lot_id: @lot), remote: true
 = subscribe_to "/lots/update"

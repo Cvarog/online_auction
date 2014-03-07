@@ -7,6 +7,7 @@ class Admin::LotsController < ApplicationController
   end
 
   def new
+    # @items = Item.all
     @lot = Lot.new
   end
 
@@ -43,7 +44,7 @@ class Admin::LotsController < ApplicationController
   private
 
   def lot_params
-   params.require(:lot).permit(:name, :description, :price, :start_time, :expired_time, :time_step)
+   params.require(:lot).permit(:name, :description, :price, :start_time, :expired_time, :time_step, :item_id)
   end
 
 

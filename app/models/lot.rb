@@ -8,11 +8,17 @@ class Lot < ActiveRecord::Base
   validates :name, length: { minimum: 3 }
 
   
-  # scope :active, lambda { all.select { |lot| lot.active? } }
   # Lot.all.select генерирует массив по условию, например Item.all.select { |item| item.price == 100 }
+
+  # scope :active, -> { Lot.all.select { |lot| lot.active? } }
+  # Lot.all.select { |lot| lot.active? }
+
+
+
   scope :active, -> { Lot.all.select { |lot| lot.active? } } 
   scope :finished, -> { Lot.all.select { |lot| lot.finished? } }
   scope :started, -> { Lot.all.select { |lot| lot.started? } }
+  
 
   def active?
     started? && !finished?
@@ -25,6 +31,9 @@ class Lot < ActiveRecord::Base
   def started?
     Time.now.utc > self.start_time
   end
+   # scope :started, ->  { where(Time.now.utc > self.start_time) }
+   # scope :finished, -> { where(Time.now.utc > self.expired_time) }
+   # scope :active, -> { where(started: true, finished: false) }
 
   def increase_expired_time
     self.expired_time += 30
