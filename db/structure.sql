@@ -1,6 +1,6 @@
 CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL);
 CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version");
-CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime, "nickname" varchar(255), "first_name" varchar(255), "last_name" varchar(255), "admin" boolean DEFAULT 'f');
+CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime, "nickname" varchar(255), "first_name" varchar(255), "last_name" varchar(255), "admin" boolean DEFAULT 'f', "bet" integer);
 CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email");
 CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token");
 CREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime, "ancestry" varchar(255), "picture_file_name" varchar(255), "picture_content_type" varchar(255), "picture_file_size" integer, "picture_updated_at" datetime);
@@ -38,3 +38,5 @@ INSERT INTO schema_migrations (version) VALUES ('20140131165011');
 INSERT INTO schema_migrations (version) VALUES ('20140205124950');
 
 INSERT INTO schema_migrations (version) VALUES ('20140213125013');
+
+INSERT INTO schema_migrations (version) VALUES ('20140320162410');

@@ -31,6 +31,7 @@ class Lot < ActiveRecord::Base
   def started?
     Time.now.utc > self.start_time
   end
+  
    # scope :started, ->  { where(Time.now.utc > self.start_time) }
    # scope :finished, -> { where(Time.now.utc > self.expired_time) }
    # scope :active, -> { where(started: true, finished: false) }

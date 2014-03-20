@@ -5,6 +5,7 @@ FactoryGirl.define do
     description "Some wild wild text about items"
     category_id 1
     lot_id 1
+    # image_id 1
     # association(:category)
     # association(:lot)
   end

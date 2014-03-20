@@ -1,4 +1,6 @@
 class BetsController < ApplicationController
+  #  нужен js для обработки ответа от девайза
+  # before_filter :authenticate_user!
 
   respond_to :js
   # def create
@@ -13,9 +15,9 @@ class BetsController < ApplicationController
   # end
   
   def create
+    @user = current_user
     @lot = Lot.find(params[:lot_id])
-    # @bet = Bet.create(bet_params.merge(lot: @lot))
-    @bet = Bet.create(lot: @lot)
+    @bet = Bet.create(lot: @lot, user: @user)
     PrivatePub.publish_to "/lots/update", lot_id: @bet.lot.id, expired_time: @bet.lot.expired_time.to_s
     render nothing: true
   end
@@ -23,6 +25,6 @@ class BetsController < ApplicationController
   private
 
   def bet_params
-    params.require(:bet).permit(:lot_id) if params[:bet]
+    params.require(:bet).permit(:lot_id, :user_id) if params[:bet]
   end
 end

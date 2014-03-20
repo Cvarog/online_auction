@@ -1,4 +1,4 @@
-class Admin::LotsController < ApplicationController
+class Admin::LotsController < Admin::BaseController
 
  before_filter :set_lot, except: [:index, :new, :create]
 

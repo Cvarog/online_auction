@@ -14,6 +14,9 @@
   / -@item.images.each do |i|
   / %p=image_tag i.item_image.url(:medium)
 
-    
-= button_to 'Make a Bet!', bets_path(lot_id: @lot), remote: true
-= subscribe_to "/lots/update"
+-unless @lot.finished?
+  =button_to 'Make a Bet!', bets_path(lot_id: @lot), remote: true
+
+Ставки:
+=current_user.bet
+=subscribe_to "/lots/update"
